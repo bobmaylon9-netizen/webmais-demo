@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Performance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Montserrat, sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+filter:brightness(40%);
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to top, #000 10%, transparent);
+z-index:-1;
+}
+
+.hero h1{
+font-size:50px;
+font-weight:800;
+letter-spacing:3px;
+color:#d4af37;
+text-shadow:0 0 20px rgba(212,175,55,0.8);
+}
+
+.hero p{
+margin-top:20px;
+font-size:18px;
+color:#ccc;
+}
+
+/* Button */
+.btn{
+margin-top:30px;
+padding:15px 35px;
+border:2px solid #d4af37;
+color:#d4af37;
+text-decoration:none;
+font-weight:600;
+border-radius:40px;
+transition:0.4s;
+}
+
+.btn:hover{
+background:#d4af37;
+color:#000;
+box-shadow:0 0 20px #d4af37;
+}
+
+/* SERVICES */
+.services{
+padding:80px 20px;
+background:#0a0a0a;
+text-align:center;
+}
+
+.services h2{
+font-size:36px;
+margin-bottom:40px;
+color:#d4af37;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:20px;
+padding:25px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(212,175,55,0.4);
+}
+
+.card h3{
+color:#d4af37;
+margin-bottom:10px;
+}
+
+/* FORM */
+.form{
+padding:80px 20px;
+text-align:center;
+background:#000;
+}
+
+input, select{
+padding:12px;
+margin:8px;
+width:90%;
+max-width:400px;
+border:none;
+border-radius:8px;
+}
+
+button{
+padding:14px 30px;
+background:#d4af37;
+border:none;
+color:#000;
+font-weight:700;
+border-radius:30px;
+cursor:pointer;
+transition:0.4s;
+}
+
+button:hover{
+box-shadow:0 0 20px #d4af37;
+}
+
+/* MAP */
+iframe{
+width:100%;
+height:350px;
+border:0;
+}
+
+/* WhatsApp */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px 20px;
+border-radius:50px;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-driving-a-sports-car-1603/1080p.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div>
+<h1 id="typing"></h1>
+<p>Performance • Segurança • Precisão</p>
+<a href="#agendamento" class="btn">AGENDAR AGORA</a>
+</div>
+
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+<h2>Serviços Premium</h2>
+
+<div class="cards">
+<div class="card">
+<h3>Suspensão Esportiva</h3>
+<p>Estabilidade de alta performance.</p>
+</div>
+
+<div class="card">
+<h3>Sistema de Freios</h3>
+<p>Frenagem de máxima segurança.</p>
+</div>
+
+<div class="card">
+<h3>Revisão Completa</h3>
+<p>Diagnóstico profissional detalhado.</p>
+</div>
+
+<div class="card">
+<h3>Preparação Motor</h3>
+<p>Mais potência e desempenho.</p>
+</div>
+</div>
+</section>
+
+<!-- FORM -->
+<section class="form" id="agendamento">
+<h2 style="color:#d4af37;">Agendamento VIP</h2>
+
+<input type="text" id="nome" placeholder="Seu nome">
+<br>
+<input type="text" id="veiculo" placeholder="Modelo do veículo">
+<br>
+<select id="servico">
+<option>Revisão Completa</option>
+<option>Freios</option>
+<option>Suspensão</option>
+<option>Preparação Motor</option>
+</select>
+<br>
+<button onclick="enviar()">Confirmar via WhatsApp</button>
+
+</section>
+
+<!-- MAP -->
+<section>
+<iframe src="https://maps.google.com/maps?q=Comodoro%20MT&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<a class="whatsapp" href="https://wa.me/556593396277" target="_blank">
+WhatsApp
+</a>
+
+<script>
+// typing effect
+const text = ["Consertamos seu carro", "Cuidamos da sua segurança"];
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+(function type(){
+ if(count === text.length){ count = 0; }
+ currentText = text[count];
+ letter = currentText.slice(0, ++index);
+
+ document.getElementById("typing").textContent = letter;
+
+ if(letter.length === currentText.length){
+   setTimeout(()=>{
+     index = 0;
+     count++;
+     type();
+   },1500);
+ } else {
+   setTimeout(type, 70);
+ }
+})();
+
+function enviar(){
+let nome = document.getElementById("nome").value;
+let veiculo = document.getElementById("veiculo").value;
+let servico = document.getElementById("servico").value;
+
+let msg = `Olá, meu nome é ${nome}. Quero agendar um serviço.\nVeículo: ${veiculo}\nServiço: ${servico}`;
+
+window.open(`https://wa.me/556593396277?text=${encodeURIComponent(msg)}`);
+}
+</script>
+
+</body>
+</html>
