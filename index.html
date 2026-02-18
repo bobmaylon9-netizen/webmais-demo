@@ -3,97 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oficina Premium Performance</title>
+<title>Oficina Mecânica Premium</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  font-family:Montserrat, sans-serif;
-  background:#000;
+  font-family:Poppins, sans-serif;
+  background:#0b0b0b;
   color:white;
   overflow-x:hidden;
 }
 
-/* HERO VIDEO BACKGROUND */
-
+/* HERO */
 .hero{
-  position:relative;
   height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
   overflow:hidden;
 }
 
-.hero video{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:brightness(45%);
-}
-
-.overlay{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  backdrop-filter: blur(3px);
-  background:linear-gradient(transparent, rgba(0,0,0,0.7));
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
-
 .hero h1{
-  font-size:48px;
-  font-weight:800;
-  letter-spacing:3px;
+  font-size:42px;
+  letter-spacing:2px;
 }
 
-.hero p{
-  opacity:0.85;
-  margin-top:10px;
+/* floating tools */
+.parallax-item{
+  position:absolute;
+  opacity:0.15;
 }
 
-.glow-line{
-  width:120px;
-  height:3px;
-  background:#00d0ff;
-  margin:25px auto;
-  box-shadow:0 0 15px #00d0ff;
+.tool1{ top:10%; left:10%; width:90px; animation:float 6s infinite;}
+.tool2{ bottom:15%; right:15%; width:100px; animation:float 8s infinite;}
+.tool3{ top:50%; left:80%; width:70px; animation:float 7s infinite;}
+
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+  100%{transform:translateY(0)}
 }
 
-/* glass card */
+/* glow wrench */
+.wrench{
+  width:230px;
+  margin-top:20px;
+  filter:drop-shadow(0 0 8px #00d0ff);
+  animation:shine 4s infinite;
+}
+
+@keyframes shine{
+  0%{filter:drop-shadow(0 0 8px #00d0ff);}
+  50%{filter:drop-shadow(0 0 25px #00d0ff);}
+  100%{filter:drop-shadow(0 0 8px #00d0ff);}
+}
+
+/* SERVICES */
 .services{
-  padding:80px 20px;
+  padding:60px 20px;
   text-align:center;
 }
 
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
   margin-top:40px;
 }
 
 .card{
-  background:rgba(255,255,255,0.05);
-  border-radius:18px;
-  backdrop-filter: blur(12px);
+  background:#161616;
+  border-radius:15px;
   overflow:hidden;
   transition:0.4s;
-  border:1px solid rgba(255,255,255,0.08);
+  cursor:pointer;
 }
 
 .card img{
@@ -104,62 +91,72 @@ body{
 }
 
 .card:hover img{
-  transform:scale(1.08);
+  transform:scale(1.1);
 }
 
 .card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.6);
+  transform:translateY(-10px);
+}
+
+.card h3{
+  margin:15px 0 5px;
 }
 
 /* testimonials */
 .testimonials{
-  background:#050505;
-  padding:70px 20px;
+  padding:60px 20px;
+  background:#111;
   text-align:center;
 }
 
 .testimonial{
   max-width:600px;
-  margin:25px auto;
-  opacity:0.9;
+  margin:20px auto;
 }
 
 .testimonial img{
-  width:75px;
+  width:70px;
+  height:70px;
   border-radius:50%;
-  margin-bottom:10px;
 }
 
-/* button */
-.btn{
-  background:#00d0ff;
+/* form */
+.form-section{
+  padding:60px 20px;
+  text-align:center;
+}
+
+input, select, textarea{
+  width:90%;
+  max-width:400px;
+  padding:12px;
+  margin:8px;
   border:none;
-  padding:14px 28px;
-  border-radius:40px;
+  border-radius:8px;
+}
+
+button{
+  background:#00d0ff;
   color:white;
-  font-weight:600;
-  letter-spacing:1px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
   cursor:pointer;
-  transition:0.3s;
 }
 
-.btn:hover{
-  background:#00a5cc;
-}
-
-/* whatsapp */
+/* WhatsApp button */
 .whatsapp{
   position:fixed;
   bottom:20px;
   right:20px;
   background:#25D366;
   color:white;
-  padding:16px 20px;
+  padding:15px 18px;
   border-radius:50px;
   font-size:18px;
   text-decoration:none;
-  box-shadow:0 0 20px rgba(0,0,0,0.5);
+  box-shadow:0 0 15px rgba(0,0,0,0.5);
 }
 
 /* map */
@@ -173,50 +170,53 @@ iframe{
 
 <body>
 
-<!-- HERO WITH CAR VIDEO -->
+<!-- SOUND -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_8f8c8d6d7a.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HERO -->
 <section class="hero">
 
-<video autoplay muted loop>
-  <source src="https://cdn.coverr.co/videos/coverr-driving-a-luxury-car-5176/1080p.mp4" type="video/mp4">
-</video>
+<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax-item tool1">
+<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax-item tool2">
+<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax-item tool3">
 
-<div class="overlay"></div>
-
-<div class="hero-content">
+<div>
 <h1 id="typing"></h1>
-<div class="glow-line"></div>
-<p>Alta performance • Segurança • Tecnologia automotiva</p>
-<button class="btn" onclick="document.getElementById('agendar').scrollIntoView({behavior:'smooth'})">
-Agendar Serviço
-</button>
+<img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png" class="wrench">
 </div>
 
 </section>
 
 <!-- SERVICES -->
 <section class="services">
-<h2>Serviços Premium</h2>
+<h2>Nossos Serviços</h2>
 
 <div class="cards">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e">
-<h3>Suspensão Performance</h3>
+<h3>Suspensão</h3>
+<p>Amortecedores e estabilidade.</p>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
-<h3>Sistema de Freios</h3>
+<h3>Freios</h3>
+<p>Segurança total.</p>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc">
-<h3>Motor & Diagnóstico</h3>
+<h3>Motor</h3>
+<p>Revisão e desempenho.</p>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537">
-<h3>Troca de Óleo Sintético</h3>
+<h3>Troca de Óleo</h3>
+<p>Proteção do motor.</p>
 </div>
 
 </div>
@@ -224,36 +224,38 @@ Agendar Serviço
 
 <!-- TESTIMONIALS -->
 <section class="testimonials">
-<h2>Clientes Premium</h2>
+<h2>Clientes Satisfeitos</h2>
 
 <div class="testimonial">
-<img src="https://randomuser.me/api/portraits/men/22.jpg">
-<p>“Atendimento impecável e serviço de alto padrão.”</p>
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<p>"Meu carro ficou perfeito! Atendimento rápido."</p>
 </div>
 
 <div class="testimonial">
-<img src="https://randomuser.me/api/portraits/women/44.jpg">
-<p>“Minha experiência foi digna de concessionária.”</p>
+<img src="https://randomuser.me/api/portraits/women/45.jpg">
+<p>"Equipe honesta e serviço de qualidade."</p>
 </div>
 
 </section>
 
 <!-- FORM -->
-<section id="agendar" style="padding:70px 20px; text-align:center;">
-<h2>Agende Seu Atendimento</h2>
+<section class="form-section">
+<h2>Agende Seu Serviço</h2>
 
-<input type="text" id="nome" placeholder="Seu nome"><br><br>
-<input type="text" id="veiculo" placeholder="Modelo do veículo"><br><br>
+<input type="text" id="nome" placeholder="Seu nome">
+<br>
+<input type="text" id="veiculo" placeholder="Modelo do veículo">
+<br>
 
 <select id="servico">
-<option>Revisão Premium</option>
+<option>Revisão</option>
 <option>Freios</option>
 <option>Suspensão</option>
 <option>Troca de óleo</option>
 </select>
-<br><br>
+<br>
 
-<button class="btn" onclick="enviar()">Confirmar no WhatsApp</button>
+<button onclick="enviar()">Confirmar Agendamento</button>
 </section>
 
 <!-- MAP -->
@@ -262,12 +264,14 @@ Agendar Serviço
 <iframe src="https://maps.google.com/maps?q=Comodoro%20MT&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </section>
 
+<!-- WhatsApp -->
 <a class="whatsapp" href="https://wa.me/556593396277" target="_blank">
 💬 WhatsApp
 </a>
 
 <script>
-const text = ["Performance e precisão", "Cuidamos da sua segurança", "Tecnologia automotiva premium"];
+// typing text
+const text = ["Consertamos seu carro", "Cuidamos da sua segurança"];
 let count = 0;
 let index = 0;
 let currentText = "";
@@ -277,6 +281,7 @@ let letter = "";
  if(count === text.length){ count = 0; }
  currentText = text[count];
  letter = currentText.slice(0, ++index);
+
  document.getElementById("typing").textContent = letter;
 
  if(letter.length === currentText.length){
@@ -290,6 +295,7 @@ let letter = "";
  }
 })();
 
+// send to WhatsApp
 function enviar(){
 let nome = document.getElementById("nome").value;
 let veiculo = document.getElementById("veiculo").value;
