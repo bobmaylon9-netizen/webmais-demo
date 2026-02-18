@@ -197,14 +197,15 @@ audio{
 <!-- HERO -->
 <section class="hero">
 
-<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p1">
-<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p2">
-<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p3">
-<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p4">
+<!-- PARALLAX FERRAMENTAS REAIS -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Wrench_icon.png" class="parallax p1">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Nut_icon.png" class="parallax p2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Screwdriver_icon.png" class="parallax p3">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Wrench_icon.png" class="parallax p4">
 
 <div class="hero-content">
   <h1 id="typing"></h1>
-  <img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png" class="wrench">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Wrench_icon.png" class="wrench">
 </div>
 
 </section>
@@ -304,9 +305,7 @@ function deletingEffect() {
       word.pop();
       document.getElementById('typing').innerHTML = word.join("");
     } else {
-      if (words.length > (i + 1)) {
-        i++;
-      } else { i = 0; };
+      if (words.length > (i + 1)) { i++; } else { i=0; };
       typingEffect();
       return false;
     };
