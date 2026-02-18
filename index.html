@@ -8,6 +8,54 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+  /* HERO PREMIUM */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(180deg,#050505,#000);
+}
+
+/* ferramentas */
+.parallax{
+  position:absolute;
+  opacity:0.12;
+  pointer-events:none;
+}
+
+.p1{top:10%; left:10%; width:70px;}
+.p2{top:70%; left:20%; width:100px;}
+.p3{top:40%; right:10%; width:80px;}
+.p4{bottom:10%; right:30%; width:60px;}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero h1{
+  font-size:44px;
+  letter-spacing:2px;
+}
+
+/* chave cromada */
+.wrench{
+  width:220px;
+  margin-top:20px;
+  filter:brightness(1.3);
+  position:relative;
+  animation:glow 4s infinite;
+}
+
+@keyframes glow{
+  0%{filter:drop-shadow(0 0 5px #00d0ff);}
+  50%{filter:drop-shadow(0 0 25px #00d0ff);}
+  100%{filter:drop-shadow(0 0 5px #00d0ff);}
+}
 body{
   margin:0;
   font-family:Poppins, sans-serif;
@@ -133,13 +181,15 @@ iframe{
 <!-- HERO -->
 <section class="hero">
 
-<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax-item tool1">
-<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax-item tool2">
-<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax-item tool3">
+<!-- ferramentas parallax -->
+<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p1">
+<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p2">
+<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p3">
+<img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p4">
 
-<div>
-<h1 id="typing"></h1>
-<img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png" class="wrench">
+<div class="hero-content">
+  <h1 id="typing"></h1>
+  <img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png" class="wrench">
 </div>
 
 </section>
@@ -191,30 +241,57 @@ iframe{
 </a>
 
 <script>
-// typing text
-const text = ["Consertamos seu carro", "Cuidamos da sua segurança"];
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
+// TEXTO DINÂMICO COM APAGAR
+const words = ["Consertamos seu carro", "Cuidamos da sua segurança"];
+let i = 0;
+let timer;
 
-(function type(){
- if(count === text.length){ count = 0; }
- currentText = text[count];
- letter = currentText.slice(0, ++index);
+function typingEffect() {
+  let word = words[i].split("");
+  var loopTyping = function() {
+    if (word.length > 0) {
+      document.getElementById('typing').innerHTML += word.shift();
+    } else {
+      deletingEffect();
+      return false;
+    };
+    timer = setTimeout(loopTyping, 70);
+  };
+  loopTyping();
+};
 
- document.getElementById("typing").textContent = letter;
+function deletingEffect() {
+  let word = words[i].split("");
+  var loopDeleting = function() {
+    if (word.length > 0) {
+      word.pop();
+      document.getElementById('typing').innerHTML = word.join("");
+    } else {
+      if (words.length > (i + 1)) {
+        i++;
+      } else {
+        i = 0;
+      };
+      typingEffect();
+      return false;
+    };
+    timer = setTimeout(loopDeleting, 40);
+  };
+  timer = setTimeout(loopDeleting, 1500);
+};
 
- if(letter.length === currentText.length){
-   setTimeout(()=>{
-     index = 0;
-     count++;
-     type();
-   },1500);
- } else {
-   setTimeout(type, 80);
- }
-})();
+typingEffect();
+
+
+// PARALLAX AO ROLAR
+window.addEventListener("scroll", function(){
+  const scrollY = window.scrollY;
+
+  document.querySelectorAll(".parallax").forEach((el, index)=>{
+    const speed = (index + 1) * 0.15;
+    el.style.transform = `translateY(${scrollY * speed}px)`;
+  });
+});
 </script>
 
 </body>
