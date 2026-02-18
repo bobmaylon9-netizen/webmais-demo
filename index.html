@@ -3,188 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury Performance</title>
+<title>Oficina Premium Performance</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 body{
-font-family:Montserrat, sans-serif;
-background:#000;
-color:#fff;
-overflow-x:hidden;
+  margin:0;
+  font-family:Montserrat, sans-serif;
+  background:#000;
+  color:white;
+  overflow-x:hidden;
 }
 
-/* HERO */
+/* HERO VIDEO BACKGROUND */
+
 .hero{
-height:100vh;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
+  position:relative;
+  height:100vh;
+  overflow:hidden;
 }
 
 .hero video{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
-filter:brightness(40%);
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(45%);
 }
 
 .overlay{
-position:absolute;
-width:100%;
-height:100%;
-background:linear-gradient(to top, #000 10%, transparent);
-z-index:-1;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  backdrop-filter: blur(3px);
+  background:linear-gradient(transparent, rgba(0,0,0,0.7));
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
 .hero h1{
-font-size:50px;
-font-weight:800;
-letter-spacing:3px;
-color:#d4af37;
-text-shadow:0 0 20px rgba(212,175,55,0.8);
+  font-size:48px;
+  font-weight:800;
+  letter-spacing:3px;
 }
 
 .hero p{
-margin-top:20px;
-font-size:18px;
-color:#ccc;
+  opacity:0.85;
+  margin-top:10px;
 }
 
-/* Button */
-.btn{
-margin-top:30px;
-padding:15px 35px;
-border:2px solid #d4af37;
-color:#d4af37;
-text-decoration:none;
-font-weight:600;
-border-radius:40px;
-transition:0.4s;
+.glow-line{
+  width:120px;
+  height:3px;
+  background:#00d0ff;
+  margin:25px auto;
+  box-shadow:0 0 15px #00d0ff;
 }
 
-.btn:hover{
-background:#d4af37;
-color:#000;
-box-shadow:0 0 20px #d4af37;
-}
-
-/* SERVICES */
+/* glass card */
 .services{
-padding:80px 20px;
-background:#0a0a0a;
-text-align:center;
-}
-
-.services h2{
-font-size:36px;
-margin-bottom:40px;
-color:#d4af37;
+  padding:80px 20px;
+  text-align:center;
 }
 
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:40px;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,0.1);
-border-radius:20px;
-padding:25px;
-transition:0.4s;
+  background:rgba(255,255,255,0.05);
+  border-radius:18px;
+  backdrop-filter: blur(12px);
+  overflow:hidden;
+  transition:0.4s;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  transition:0.4s;
+}
+
+.card:hover img{
+  transform:scale(1.08);
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px rgba(212,175,55,0.4);
+  transform:translateY(-12px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
-.card h3{
-color:#d4af37;
-margin-bottom:10px;
+/* testimonials */
+.testimonials{
+  background:#050505;
+  padding:70px 20px;
+  text-align:center;
 }
 
-/* FORM */
-.form{
-padding:80px 20px;
-text-align:center;
-background:#000;
+.testimonial{
+  max-width:600px;
+  margin:25px auto;
+  opacity:0.9;
 }
 
-input, select{
-padding:12px;
-margin:8px;
-width:90%;
-max-width:400px;
-border:none;
-border-radius:8px;
+.testimonial img{
+  width:75px;
+  border-radius:50%;
+  margin-bottom:10px;
 }
 
-button{
-padding:14px 30px;
-background:#d4af37;
-border:none;
-color:#000;
-font-weight:700;
-border-radius:30px;
-cursor:pointer;
-transition:0.4s;
+/* button */
+.btn{
+  background:#00d0ff;
+  border:none;
+  padding:14px 28px;
+  border-radius:40px;
+  color:white;
+  font-weight:600;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-button:hover{
-box-shadow:0 0 20px #d4af37;
+.btn:hover{
+  background:#00a5cc;
 }
 
-/* MAP */
-iframe{
-width:100%;
-height:350px;
-border:0;
-}
-
-/* WhatsApp */
+/* whatsapp */
 .whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px 20px;
-border-radius:50px;
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 0 15px rgba(0,0,0,0.6);
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:16px 20px;
+  border-radius:50px;
+  font-size:18px;
+  text-decoration:none;
+  box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+/* map */
+iframe{
+  width:100%;
+  height:350px;
+  border:0;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<!-- HERO WITH CAR VIDEO -->
 <section class="hero">
 
 <video autoplay muted loop>
-<source src="https://cdn.coverr.co/videos/coverr-driving-a-sports-car-1603/1080p.mp4" type="video/mp4">
+  <source src="https://cdn.coverr.co/videos/coverr-driving-a-luxury-car-5176/1080p.mp4" type="video/mp4">
 </video>
 
 <div class="overlay"></div>
 
-<div>
+<div class="hero-content">
 <h1 id="typing"></h1>
-<p>Performance • Segurança • Precisão</p>
-<a href="#agendamento" class="btn">AGENDAR AGORA</a>
+<div class="glow-line"></div>
+<p>Alta performance • Segurança • Tecnologia automotiva</p>
+<button class="btn" onclick="document.getElementById('agendar').scrollIntoView({behavior:'smooth'})">
+Agendar Serviço
+</button>
 </div>
 
 </section>
@@ -194,59 +198,76 @@ box-shadow:0 0 15px rgba(0,0,0,0.6);
 <h2>Serviços Premium</h2>
 
 <div class="cards">
+
 <div class="card">
-<h3>Suspensão Esportiva</h3>
-<p>Estabilidade de alta performance.</p>
+<img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e">
+<h3>Suspensão Performance</h3>
 </div>
 
 <div class="card">
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
 <h3>Sistema de Freios</h3>
-<p>Frenagem de máxima segurança.</p>
 </div>
 
 <div class="card">
-<h3>Revisão Completa</h3>
-<p>Diagnóstico profissional detalhado.</p>
+<img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc">
+<h3>Motor & Diagnóstico</h3>
 </div>
 
 <div class="card">
-<h3>Preparação Motor</h3>
-<p>Mais potência e desempenho.</p>
+<img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537">
+<h3>Troca de Óleo Sintético</h3>
 </div>
+
 </div>
 </section>
 
-<!-- FORM -->
-<section class="form" id="agendamento">
-<h2 style="color:#d4af37;">Agendamento VIP</h2>
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+<h2>Clientes Premium</h2>
 
-<input type="text" id="nome" placeholder="Seu nome">
-<br>
-<input type="text" id="veiculo" placeholder="Modelo do veículo">
-<br>
+<div class="testimonial">
+<img src="https://randomuser.me/api/portraits/men/22.jpg">
+<p>“Atendimento impecável e serviço de alto padrão.”</p>
+</div>
+
+<div class="testimonial">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<p>“Minha experiência foi digna de concessionária.”</p>
+</div>
+
+</section>
+
+<!-- FORM -->
+<section id="agendar" style="padding:70px 20px; text-align:center;">
+<h2>Agende Seu Atendimento</h2>
+
+<input type="text" id="nome" placeholder="Seu nome"><br><br>
+<input type="text" id="veiculo" placeholder="Modelo do veículo"><br><br>
+
 <select id="servico">
-<option>Revisão Completa</option>
+<option>Revisão Premium</option>
 <option>Freios</option>
 <option>Suspensão</option>
-<option>Preparação Motor</option>
+<option>Troca de óleo</option>
 </select>
-<br>
-<button onclick="enviar()">Confirmar via WhatsApp</button>
+<br><br>
 
+<button class="btn" onclick="enviar()">Confirmar no WhatsApp</button>
 </section>
 
 <!-- MAP -->
 <section>
+<h2 style="text-align:center">Localização</h2>
 <iframe src="https://maps.google.com/maps?q=Comodoro%20MT&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </section>
 
 <a class="whatsapp" href="https://wa.me/556593396277" target="_blank">
-WhatsApp
+💬 WhatsApp
 </a>
 
 <script>
-// typing effect
-const text = ["Consertamos seu carro", "Cuidamos da sua segurança"];
+const text = ["Performance e precisão", "Cuidamos da sua segurança", "Tecnologia automotiva premium"];
 let count = 0;
 let index = 0;
 let currentText = "";
@@ -256,7 +277,6 @@ let letter = "";
  if(count === text.length){ count = 0; }
  currentText = text[count];
  letter = currentText.slice(0, ++index);
-
  document.getElementById("typing").textContent = letter;
 
  if(letter.length === currentText.length){
