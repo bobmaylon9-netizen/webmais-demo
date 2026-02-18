@@ -32,15 +32,14 @@ body{
   letter-spacing:2px;
 }
 
-/* floating tools */
 .parallax-item{
   position:absolute;
   opacity:0.15;
 }
 
-.tool1{ top:10%; left:10%; width:90px; animation:float 6s infinite;}
+.tool1{ top:10%; left:10%; width:80px; animation:float 6s infinite;}
 .tool2{ bottom:15%; right:15%; width:100px; animation:float 8s infinite;}
-.tool3{ top:50%; left:80%; width:70px; animation:float 7s infinite;}
+.tool3{ top:50%; left:80%; width:60px; animation:float 7s infinite;}
 
 @keyframes float{
   0%{transform:translateY(0)}
@@ -48,9 +47,9 @@ body{
   100%{transform:translateY(0)}
 }
 
-/* glow wrench */
+/* Glow wrench */
 .wrench{
-  width:230px;
+  width:220px;
   margin-top:20px;
   filter:drop-shadow(0 0 8px #00d0ff);
   animation:shine 4s infinite;
@@ -58,7 +57,7 @@ body{
 
 @keyframes shine{
   0%{filter:drop-shadow(0 0 8px #00d0ff);}
-  50%{filter:drop-shadow(0 0 25px #00d0ff);}
+  50%{filter:drop-shadow(0 0 20px #00d0ff);}
   100%{filter:drop-shadow(0 0 8px #00d0ff);}
 }
 
@@ -70,7 +69,7 @@ body{
 
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
   margin-top:40px;
 }
@@ -95,57 +94,14 @@ body{
 }
 
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-8px);
 }
 
 .card h3{
-  margin:15px 0 5px;
+  margin:15px 0;
 }
 
-/* testimonials */
-.testimonials{
-  padding:60px 20px;
-  background:#111;
-  text-align:center;
-}
-
-.testimonial{
-  max-width:600px;
-  margin:20px auto;
-}
-
-.testimonial img{
-  width:70px;
-  height:70px;
-  border-radius:50%;
-}
-
-/* form */
-.form-section{
-  padding:60px 20px;
-  text-align:center;
-}
-
-input, select, textarea{
-  width:90%;
-  max-width:400px;
-  padding:12px;
-  margin:8px;
-  border:none;
-  border-radius:8px;
-}
-
-button{
-  background:#00d0ff;
-  color:white;
-  padding:12px 25px;
-  border:none;
-  border-radius:30px;
-  font-size:16px;
-  cursor:pointer;
-}
-
-/* WhatsApp button */
+/* WhatsApp Button */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -159,7 +115,11 @@ button{
   box-shadow:0 0 15px rgba(0,0,0,0.5);
 }
 
-/* map */
+/* MAP */
+.map{
+  margin-top:60px;
+}
+
 iframe{
   width:100%;
   height:350px;
@@ -169,11 +129,6 @@ iframe{
 </head>
 
 <body>
-
-<!-- SOUND -->
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_8f8c8d6d7a.mp3" type="audio/mpeg">
-</audio>
 
 <!-- HERO -->
 <section class="hero">
@@ -198,75 +153,41 @@ iframe{
 <div class="card">
 <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e">
 <h3>Suspensão</h3>
-<p>Amortecedores e estabilidade.</p>
+<p>Amortecedores, molas e estabilidade.</p>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
 <h3>Freios</h3>
-<p>Segurança total.</p>
+<p>Segurança total na frenagem.</p>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc">
 <h3>Motor</h3>
-<p>Revisão e desempenho.</p>
+<p>Revisão completa e potência.</p>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537">
 <h3>Troca de Óleo</h3>
-<p>Proteção do motor.</p>
+<p>Proteção e durabilidade.</p>
 </div>
 
 </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-<h2>Clientes Satisfeitos</h2>
-
-<div class="testimonial">
-<img src="https://randomuser.me/api/portraits/men/32.jpg">
-<p>"Meu carro ficou perfeito! Atendimento rápido."</p>
-</div>
-
-<div class="testimonial">
-<img src="https://randomuser.me/api/portraits/women/45.jpg">
-<p>"Equipe honesta e serviço de qualidade."</p>
-</div>
-
-</section>
-
-<!-- FORM -->
-<section class="form-section">
-<h2>Agende Seu Serviço</h2>
-
-<input type="text" id="nome" placeholder="Seu nome">
-<br>
-<input type="text" id="veiculo" placeholder="Modelo do veículo">
-<br>
-
-<select id="servico">
-<option>Revisão</option>
-<option>Freios</option>
-<option>Suspensão</option>
-<option>Troca de óleo</option>
-</select>
-<br>
-
-<button onclick="enviar()">Confirmar Agendamento</button>
 </section>
 
 <!-- MAP -->
-<section>
-<h2 style="text-align:center">Localização</h2>
+<section class="map">
+<h2 style="text-align:center">Nossa Localização</h2>
+
 <iframe src="https://maps.google.com/maps?q=Comodoro%20MT&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
 </section>
 
 <!-- WhatsApp -->
-<a class="whatsapp" href="https://wa.me/556593396277" target="_blank">
-💬 WhatsApp
+<a class="whatsapp" href="https://wa.me/556593396277?text=Olá,%20gostaria%20de%20agendar%20um%20serviço%20para%20meu%20carro." target="_blank">
+💬 Agendar Serviço
 </a>
 
 <script>
@@ -291,20 +212,9 @@ let letter = "";
      type();
    },1500);
  } else {
-   setTimeout(type, 70);
+   setTimeout(type, 80);
  }
 })();
-
-// send to WhatsApp
-function enviar(){
-let nome = document.getElementById("nome").value;
-let veiculo = document.getElementById("veiculo").value;
-let servico = document.getElementById("servico").value;
-
-let msg = `Olá, meu nome é ${nome}. Quero agendar um serviço.\nVeículo: ${veiculo}\nServiço: ${servico}`;
-
-window.open(`https://wa.me/556593396277?text=${encodeURIComponent(msg)}`);
-}
 </script>
 
 </body>
