@@ -8,7 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-  /* HERO PREMIUM */
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:Poppins, sans-serif;
+  background:#0b0b0b;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* HERO PREMIUM */
 .hero{
   height:100vh;
   display:flex;
@@ -17,37 +26,39 @@
   text-align:center;
   position:relative;
   overflow:hidden;
-  background:linear-gradient(180deg,#050505,#000);
+  background: linear-gradient(180deg,#050505,#000);
 }
 
-/* ferramentas */
+/* PARALLAX FERRAMENTAS */
 .parallax{
   position:absolute;
-  opacity:0.12;
   pointer-events:none;
+  opacity:0.15;
 }
 
-.p1{top:10%; left:10%; width:70px;}
-.p2{top:70%; left:20%; width:100px;}
-.p3{top:40%; right:10%; width:80px;}
-.p4{bottom:10%; right:30%; width:60px;}
+.p1{top:5%; left:10%; width:80px;}
+.p2{top:20%; right:10%; width:100px;}
+.p3{bottom:15%; left:15%; width:70px;}
+.p4{bottom:10%; right:25%; width:60px;}
 
+/* HERO CONTENT */
 .hero-content{
   position:relative;
   z-index:2;
 }
 
 .hero h1{
-  font-size:44px;
+  font-size:48px;
   letter-spacing:2px;
+  color:#00d0ff; /* Azul neon */
+  text-shadow:0 0 10px #00d0ff,0 0 20px #00d0ff,0 0 30px #00d0ff;
 }
 
-/* chave cromada */
+/* CHAVE CROMADA */
 .wrench{
-  width:220px;
+  width:230px;
   margin-top:20px;
   filter:brightness(1.3);
-  position:relative;
   animation:glow 4s infinite;
 }
 
@@ -56,78 +67,32 @@
   50%{filter:drop-shadow(0 0 25px #00d0ff);}
   100%{filter:drop-shadow(0 0 5px #00d0ff);}
 }
-body{
-  margin:0;
-  font-family:Poppins, sans-serif;
-  background:#0b0b0b;
-  color:white;
-  overflow-x:hidden;
-}
-
-/* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero h1{
-  font-size:42px;
-  letter-spacing:2px;
-}
-
-.parallax-item{
-  position:absolute;
-  opacity:0.15;
-}
-
-.tool1{ top:10%; left:10%; width:80px; animation:float 6s infinite;}
-.tool2{ bottom:15%; right:15%; width:100px; animation:float 8s infinite;}
-.tool3{ top:50%; left:80%; width:60px; animation:float 7s infinite;}
-
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-20px)}
-  100%{transform:translateY(0)}
-}
-
-/* Glow wrench */
-.wrench{
-  width:220px;
-  margin-top:20px;
-  filter:drop-shadow(0 0 8px #00d0ff);
-  animation:shine 4s infinite;
-}
-
-@keyframes shine{
-  0%{filter:drop-shadow(0 0 8px #00d0ff);}
-  50%{filter:drop-shadow(0 0 20px #00d0ff);}
-  100%{filter:drop-shadow(0 0 8px #00d0ff);}
-}
 
 /* SERVICES */
 .services{
-  padding:60px 20px;
+  padding:80px 20px;
   text-align:center;
+}
+
+.services h2{
+  font-size:36px;
+  margin-bottom:40px;
+  color:#00d0ff;
 }
 
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  margin-top:40px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
 
 .card{
   background:#161616;
-  border-radius:15px;
+  border-radius:20px;
   overflow:hidden;
   transition:0.4s;
   cursor:pointer;
+  padding-bottom:15px;
 }
 
 .card img{
@@ -141,15 +106,60 @@ body{
   transform:scale(1.1);
 }
 
-.card:hover{
-  transform:translateY(-8px);
-}
-
 .card h3{
-  margin:15px 0;
+  margin:15px 0 5px;
+  color:#00d0ff;
 }
 
-/* WhatsApp Button */
+/* TESTIMONIALS */
+.testimonials{
+  padding:60px 20px;
+  background:#111;
+  text-align:center;
+}
+
+.testimonial{
+  max-width:600px;
+  margin:20px auto;
+}
+
+.testimonial img{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+}
+
+/* FORM */
+.form-section{
+  padding:60px 20px;
+  text-align:center;
+}
+
+input, select, textarea{
+  width:90%;
+  max-width:400px;
+  padding:12px;
+  margin:8px;
+  border:none;
+  border-radius:8px;
+}
+
+button{
+  background:#00d0ff;
+  color:white;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  box-shadow:0 0 15px #00d0ff;
+}
+
+/* WHATSAPP */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -164,24 +174,29 @@ body{
 }
 
 /* MAP */
-.map{
-  margin-top:60px;
-}
-
 iframe{
   width:100%;
   height:350px;
   border:0;
+}
+
+/* AUDIO */
+audio{
+  display:none;
 }
 </style>
 </head>
 
 <body>
 
+<!-- SOM AMBIENTE -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_8f8c8d6d7a.mp3" type="audio/mpeg">
+</audio>
+
 <!-- HERO -->
 <section class="hero">
 
-<!-- ferramentas parallax -->
 <img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p1">
 <img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p2">
 <img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" class="parallax p3">
@@ -197,51 +212,73 @@ iframe{
 <!-- SERVICES -->
 <section class="services">
 <h2>Nossos Serviços</h2>
-
 <div class="cards">
-
 <div class="card">
 <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e">
 <h3>Suspensão</h3>
-<p>Amortecedores, molas e estabilidade.</p>
+<p>Amortecedores e estabilidade.</p>
 </div>
-
 <div class="card">
 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
 <h3>Freios</h3>
-<p>Segurança total na frenagem.</p>
+<p>Segurança total.</p>
 </div>
-
 <div class="card">
 <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc">
 <h3>Motor</h3>
-<p>Revisão completa e potência.</p>
+<p>Revisão e desempenho.</p>
 </div>
-
 <div class="card">
 <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537">
 <h3>Troca de Óleo</h3>
-<p>Proteção e durabilidade.</p>
+<p>Proteção do motor.</p>
 </div>
+</div>
+</section>
 
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+<h2>Clientes Satisfeitos</h2>
+<div class="testimonial">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<p>"Meu carro ficou perfeito! Atendimento rápido."</p>
 </div>
+<div class="testimonial">
+<img src="https://randomuser.me/api/portraits/women/45.jpg">
+<p>"Equipe honesta e serviço de qualidade."</p>
+</div>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+<h2>Agende Seu Serviço</h2>
+<input type="text" id="nome" placeholder="Seu nome">
+<br>
+<input type="text" id="veiculo" placeholder="Modelo do veículo">
+<br>
+<select id="servico">
+<option>Revisão</option>
+<option>Freios</option>
+<option>Suspensão</option>
+<option>Troca de óleo</option>
+</select>
+<br>
+<button onclick="enviar()">Confirmar Agendamento</button>
 </section>
 
 <!-- MAP -->
-<section class="map">
-<h2 style="text-align:center">Nossa Localização</h2>
-
+<section>
+<h2 style="text-align:center">Localização</h2>
 <iframe src="https://maps.google.com/maps?q=Comodoro%20MT&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-
 </section>
 
-<!-- WhatsApp -->
-<a class="whatsapp" href="https://wa.me/556593396277?text=Olá,%20gostaria%20de%20agendar%20um%20serviço%20para%20meu%20carro." target="_blank">
-💬 Agendar Serviço
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/556593396277" target="_blank">
+💬 WhatsApp
 </a>
 
 <script>
-// TEXTO DINÂMICO COM APAGAR
+// TEXTO DINÂMICO
 const words = ["Consertamos seu carro", "Cuidamos da sua segurança"];
 let i = 0;
 let timer;
@@ -269,29 +306,34 @@ function deletingEffect() {
     } else {
       if (words.length > (i + 1)) {
         i++;
-      } else {
-        i = 0;
-      };
+      } else { i = 0; };
       typingEffect();
       return false;
     };
-    timer = setTimeout(loopDeleting, 40);
+    timer = setTimeout(loopDeleting, 1500);
   };
-  timer = setTimeout(loopDeleting, 1500);
+  timer = setTimeout(loopDeleting, 40);
 };
 
 typingEffect();
 
-
 // PARALLAX AO ROLAR
 window.addEventListener("scroll", function(){
   const scrollY = window.scrollY;
-
   document.querySelectorAll(".parallax").forEach((el, index)=>{
-    const speed = (index + 1) * 0.15;
-    el.style.transform = `translateY(${scrollY * speed}px)`;
+    const speed = (index+1)*0.15;
+    el.style.transform = `translateY(${scrollY*speed}px)`;
   });
 });
+
+// ENVIAR WHATSAPP
+function enviar(){
+  let nome = document.getElementById("nome").value;
+  let veiculo = document.getElementById("veiculo").value;
+  let servico = document.getElementById("servico").value;
+  let msg = `Olá, meu nome é ${nome}. Quero agendar um serviço.\nVeículo: ${veiculo}\nServiço: ${servico}`;
+  window.open(`https://wa.me/556593396277?text=${encodeURIComponent(msg)}`);
+}
 </script>
 
 </body>
